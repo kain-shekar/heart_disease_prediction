@@ -25,3 +25,7 @@
 7. We created a app.py file
 
 8. Using postman sucessfully prdicted our output
+
+9. Creating '/predict' API to take values from form and predicting output
+
+10. finally using Heruku app and deploying the projects

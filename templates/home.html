@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Form</title>
+    <title>Heart-Disease prediction Form</title>
     <style>                                                                                                                                                               use attractive colors and show the result beside the form and make sure that all columns are justify                                                                                                                                                                 Provide me this code  with adding colours , and show the result beside the form in such a attractive manner using neon types colurs 
         body {
             font-family: Arial, sans-serif;
@@ -14,12 +14,15 @@
         }
 
         .container {
+            display: flex;
+            justify-content: space-evenly ;
             max-width: 600px;
             margin: 50px auto;
             padding: 20px;
-            background: #fff;
+            background: #f4f4f9;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left : 50px;
             
         }
 
@@ -63,12 +66,17 @@
         button:hover {
             background-color: #45a049;
         }
+
+        .result{
+            margin-top : -500px;
+            margin-left : 800px;
+        }
      
     </style>
 </head>
 <body>
+    <h2>Health Information Form</h2>
     <div class="container">
-        <h2>Health Information Form</h2>
         <form action="{{url_for('predict')}}" method="POST">
             <!-- Age -->
             <div class="div">
@@ -156,8 +164,7 @@
             <button type="submit">Submit</button>
         </form>
     </div>
-<div>
-   <h1 style='center'> {{prediction_text}}<h2>
-   </div>
+    <div class="result"><h1> {{prediction_text}}<h2></div>
+   
 </body >
 </html>
