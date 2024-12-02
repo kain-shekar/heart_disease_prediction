@@ -22,3 +22,6 @@
             '''
                  git config --global user.email "your email Id"
             '''
+7. We created a app.py file
+
+8. Using postman sucessfully prdicted our output

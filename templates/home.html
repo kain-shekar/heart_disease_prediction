@@ -3,11 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Health Form</title>
+    <style>                                                                                                                                                               use attractive colors and show the result beside the form and make sure that all columns are justify                                                                                                                                                                 Provide me this code  with adding colours , and show the result beside the form in such a attractive manner using neon types colurs 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 200px;
+        }
+
+        input, select, button {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+     
+    </style>
 </head>
 <body>
-    <h1>
-        hello world
-    </h1>
-</body>
+    <div class="container">
+        <h2>Health Information Form</h2>
+        <form action="{{url_for('predict')}}" method="POST">
+            <!-- Age -->
+            <div class="div">
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age" required>
+            </div>
+
+            <!-- Gender -->
+            <div>
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>Select gender</option>
+                    <option value="1">Male</option>
+                    <option value="2">Female</option>
+                </select>
+            </div>
+
+            <!-- Height -->
+            <div>
+                <label for="height">Height (cm)</label>
+                <input type="number" id="height" name="height" placeholder="Enter your height in cm" required>
+            </div>
+
+            <!-- Weight -->
+            <div>
+                <label for="weight">Weight (kg)</label>
+                <input type="number" id="weight" name="weight" placeholder="Enter your weight in kg" required>
+            </div>
+
+            <!-- Ap_hi -->
+            <div>
+                <label for="ap_hi">Systolic Blood Pressure (ap_hi)</label>
+                <input type="number" id="ap_hi" name="ap_hi" placeholder="Enter systolic BP" required>
+            </div>
+
+            <!-- Ap_lo -->
+            <div>
+                <label for="ap_lo">Diastolic Blood Pressure (ap_lo)</label>
+                <input type="number" id="ap_lo" name="ap_lo" placeholder="Enter diastolic BP" required>
+            </div>
+
+            <!-- Cholesterol -->
+            <div>
+                <label for="cholesterol">Cholesterol Level</label>
+                <select id="cholesterol" name="cholesterol" required>
+                    <option value="" disabled selected>Select cholesterol level</option>
+                    <option value="1">Normal</option>
+                    <option value="2">Above Normal</option>
+                    <option value="3">Well Above Normal</option>
+                </select>
+            </div>
+
+            <!-- Gluc -->
+            <div>
+                <label for="gluc">Glucose Level</label>
+                <select id="gluc" name="gluc" required>
+                    <option value="" disabled selected>Select glucose level</option>
+                    <option value="1">Normal</option>
+                    <option value="2">Above Normal</option>
+                    <option value="3">Well Above Normal</option>
+                </select>
+            </div>
+
+            <!-- Smoke -->
+            <div>
+                <label for="smoke">Smoking Status</label>
+                <select id="smoke" name="smoke" required>
+                    <option value="" disabled selected>Are you a smoker?</option>
+                    <option value="0">Non-smoker</option>
+                    <option value="1">Smoker</option>
+                </select>
+            </div>
+
+            <!-- Alco -->
+            <div>
+                <label for="alco">Alcohol Consumption</label>
+                <select id="alco" name="alco" required>
+                    <option value="" disabled selected>Do you consume alcohol?</option>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+<div>
+   <h1 style='center'> {{prediction_text}}<h2>
+   </div>
+</body >
 </html>

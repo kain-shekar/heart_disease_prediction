@@ -15,6 +15,7 @@ def home():
 
 @app.route('/predict_api',methods=['POST'])
 
+## function to take values in json format from postman
 def predict_api():
     data = request.json['data']
     print(data)
@@ -23,6 +24,21 @@ def predict_api():
     output=model.predict(new_data)
     print(output[0])
     return jsonify(int(output[0]))
+
+# API to take values from the form as input to the model to predict value using predict function
+@app.route('/predict', methods=['POST'])
+
+def predict():
+    data = [float(x) for x in request.form.values()]
+    new_data = scaledFun.transform(np.array(data).reshape(1,-1))
+    output = model.predict(new_data)
+    print(output[0])
+    if output[0] == 0:
+      return render_template('home.html',prediction_text="The patient don't have any Heart Disease {}".format(output))
+    else :
+      return render_template('home.html',prediction_text="The patient  have a Heart Disease {}".format(output))
+
+
 
 
 if __name__ == "__main__":
